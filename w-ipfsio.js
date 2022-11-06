@@ -12,7 +12,7 @@ const main = async () => {
     let data = []
     let dataFail = []
     let getData = await tokenClient.getCollectionData('0xb116e5baf9412b2e9229a419a4fd5be795a1abf9855af7d1e1b1786979e2c922', 'Apetos Apes');
-    for (let i = 321; i < Number(getData.supply); i++) {
+    for (let i = 0; i < Number(getData.supply); i++) {
         try {
             const tokenData = await tokenClient.getTokenData('0xb116e5baf9412b2e9229a419a4fd5be795a1abf9855af7d1e1b1786979e2c922', 'Apetos Apes', 'Apetos Ape' + " #" + (i + 1).toString());
             let tokenUri = tokenData.uri.replace("ipfs://", "https://ipfs.io/ipfs/");
