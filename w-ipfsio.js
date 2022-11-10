@@ -21,16 +21,16 @@ const main = async () => {
                 data.push(result.data);
             }).catch((err) => {
                 console.log('retry');
-                dataFail.push(i);
+                dataFail.push(i + 1);
             });
         } catch (err) {
             console.log('#' + (i + 1) + ' not found');
-            fs.writeFileSync(`${basePath}/build/backup2-${getData.name}.json`, JSON.stringify(data, null, 2));
+            fs.writeFileSync(`${basePath}/build/backup/backup2-${getData.name}.json`, JSON.stringify(data, null, 2));
         }
     }
     console.log('finish');
     fs.writeFileSync(`${basePath}/build/${getData.name}.json`, JSON.stringify(data, null, 2));
-    fs.writeFileSync(`${basePath}/build/fail-${getData.name}.json`, JSON.stringify(dataFail, null, 2));
+    fs.writeFileSync(`${basePath}/build/fail/fail-${getData.name}.json`, JSON.stringify(dataFail, null, 2));
 };
 
 main();
